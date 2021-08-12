@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<!-- User enters amount of item -->
+    <EditText
+        android:id="@+id/cost_of_item"
+        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/cost_of_item"
+        android:inputType="numberDecimal"/>
+    <!-- Question about how much the discount is, to precede the options -->
+    <TextView
+        android:id="@+id/discount_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/what_is_your_discount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_of_item"/>
+    <!-- Options for the discount amount -->
+    <RadioGroup
+        android:id="@+id/discount_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/discount_question"
+        android:orientation="vertical"
+        android:checkedButton="@id/ten_percent">
+        <RadioButton
+            android:id="@+id/ten_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_10"/>
+        <RadioButton
+            android:id="@+id/twenty_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_20"/>
+        <RadioButton
+            android:id="@+id/fifty_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_50"/>
+        <RadioButton
+            android:id="@+id/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/other"/>
+    </RadioGroup>
+    <!-- User input for the 'other' option -->
+    <EditText
+        android:id="@+id/other_input"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/_33"
+        app:layout_constraintStart_toEndOf="@id/discount_options"
+        app:layout_constraintBottom_toBottomOf="@id/discount_options"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/discount_options"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/calculate_discount"/>
+    <TextView
+        android:id="@+id/discount_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/calculate_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@string/discount_amount"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
