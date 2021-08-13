@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/cost_of_item"
         android:layout_height="wrap_content"
-        android:layout_width="100dp"
+        android:layout_width="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:hint="@string/cost_of_item"
