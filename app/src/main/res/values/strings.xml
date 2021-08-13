@@ -9,4 +9,5 @@
     <string name="_33">33%</string>
     <string name="calculate_discount">Calculate Discount</string>
     <string name="discount_amount">Discount Amount: %s</string>
+    <string name="discounted_price">New Price: %s</string>
 </resources>
