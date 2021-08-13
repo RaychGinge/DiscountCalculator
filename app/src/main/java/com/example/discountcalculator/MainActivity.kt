@@ -42,7 +42,5 @@ class MainActivity : AppCompatActivity() {
         NumberFormat.getCurrencyInstance()
         val updatedPrice = NumberFormat.getCurrencyInstance().format(newPrice)
         binding.discountedPrice.text = getString(R.string.discounted_price, updatedPrice)
-
-
     }
 }
