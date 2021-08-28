@@ -47,7 +47,8 @@
             app:srcCompat="@drawable/ic_discount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/discount_question"
-            app:layout_constraintBottom_toBottomOf="@id/discount_question"/>
+            app:layout_constraintBottom_toBottomOf="@id/discount_question"
+            tools:ignore="ContentDescription" />
         <!-- Question about how much the discount is, to precede the options -->
         <TextView
             android:id="@+id/discount_question"
@@ -55,7 +56,8 @@
             android:layout_height="wrap_content"
             android:text="@string/what_is_your_discount"
             app:layout_constraintStart_toStartOf="@id/cost_of_item"
-            app:layout_constraintTop_toBottomOf="@id/cost_of_item"/>
+            app:layout_constraintTop_toBottomOf="@id/cost_of_item"
+            style="@style/Widget.DiscountCalculator.TextView"/>
         <!-- Options for the discount amount -->
         <RadioGroup
             android:id="@+id/discount_options"
@@ -69,22 +71,26 @@
                 android:id="@+id/ten_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_10"/>
+                android:text="@string/_10"
+                style="@style/Widget.DiscountCalculator.CompoundButton.RadioButton"/>
             <RadioButton
                 android:id="@+id/twenty_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_20"/>
+                android:text="@string/_20"
+                style="@style/Widget.DiscountCalculator.CompoundButton.RadioButton"/>
             <RadioButton
                 android:id="@+id/fifty_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_50"/>
+                android:text="@string/_50"
+                style="@style/Widget.DiscountCalculator.CompoundButton.RadioButton"/>
             <RadioButton
                 android:id="@+id/other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/other"/>
+                android:text="@string/other"
+                style="@style/Widget.DiscountCalculator.CompoundButton.RadioButton"/>
         </RadioGroup>
         <!-- User input for the 'other' option -->
         <com.google.android.material.textfield.TextInputLayout
@@ -119,14 +125,17 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/calculate_button"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="@string/discount_amount"/>
+            tools:text="@string/discount_amount"
+            style="@style/Widget.DiscountCalculator.TextView"
+            android:layout_marginTop="8dp"/>
         <TextView
             android:id="@+id/discounted_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/discount_result"
-            tools:text="@string/discounted_price"/>
+            tools:text="@string/discounted_price"
+            style="@style/Widget.DiscountCalculator.TextView"/>
 
 
 
