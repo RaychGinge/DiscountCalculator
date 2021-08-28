@@ -17,14 +17,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateDiscount() {
-        val stringValue1 = binding.costOfItem.text.toString()
-        val stringValue2 = binding.otherInput.text.toString()
+        val stringValue1 = binding.costOfItemEditText.text.toString()
+        val stringValue2 = binding.otherInputEditText.text.toString()
         val cost = stringValue1.toDoubleOrNull()
         val otherDiscount = stringValue2.toDoubleOrNull()
         if (cost == null) {
             binding.discountResult.text = ""
             return
         }
+
+        if (otherDiscount == null) {
+            binding.discountResult.text = ""
+            return
+        }
+
         val discountPercentage = when (binding.discountOptions.checkedRadioButtonId) {
             R.id.ten_percent -> 0.10
             R.id.twenty_percent -> 0.20
@@ -33,12 +39,12 @@ class MainActivity : AppCompatActivity() {
             else -> return
 
         }
-        var discount = discountPercentage?.times(cost)
+        val discount = discountPercentage?.times(cost)
         NumberFormat.getCurrencyInstance()
         val formattedDiscount = NumberFormat.getCurrencyInstance().format(discount)
         binding.discountResult.text = getString(R.string.discount_amount, formattedDiscount)
 
-        var newPrice = cost - discount!!
+        val newPrice = cost - discount!!
         NumberFormat.getCurrencyInstance()
         val updatedPrice = NumberFormat.getCurrencyInstance().format(newPrice)
         binding.discountedPrice.text = getString(R.string.discounted_price, updatedPrice)

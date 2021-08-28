@@ -1,92 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-<!-- User enters amount of item -->
-    <EditText
-        android:id="@+id/cost_of_item"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="160dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/cost_of_item"
-        android:inputType="numberDecimal"/>
-    <!-- Question about how much the discount is, to precede the options -->
-    <TextView
-        android:id="@+id/discount_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/what_is_your_discount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_item"/>
-    <!-- Options for the discount amount -->
-    <RadioGroup
-        android:id="@+id/discount_options"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/discount_question"
-        android:orientation="vertical"
-        android:checkedButton="@id/ten_percent">
-        <RadioButton
-            android:id="@+id/ten_percent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+        <!-- User enters amount of item -->
+
+        <ImageView
+            android:id="@+id/icon_cost_of_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_10"/>
-        <RadioButton
-            android:id="@+id/twenty_percent"
+            app:srcCompat="@drawable/ic_wallet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cost_of_item"
+            app:layout_constraintBottom_toBottomOf="@id/cost_of_item"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cost_of_item"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/icon_cost_of_item"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
+            android:hint="@string/cost_of_item">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cost_of_item_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/icon_discount_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_20"/>
-        <RadioButton
-            android:id="@+id/fifty_percent"
+            app:srcCompat="@drawable/ic_discount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/discount_question"
+            app:layout_constraintBottom_toBottomOf="@id/discount_question"/>
+        <!-- Question about how much the discount is, to precede the options -->
+        <TextView
+            android:id="@+id/discount_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_50"/>
-        <RadioButton
-            android:id="@+id/other"
+            android:text="@string/what_is_your_discount"
+            app:layout_constraintStart_toStartOf="@id/cost_of_item"
+            app:layout_constraintTop_toBottomOf="@id/cost_of_item"/>
+        <!-- Options for the discount amount -->
+        <RadioGroup
+            android:id="@+id/discount_options"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/other"/>
-    </RadioGroup>
-    <!-- User input for the 'other' option -->
-    <EditText
-        android:id="@+id/other_input"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/_33"
-        app:layout_constraintStart_toEndOf="@id/discount_options"
-        app:layout_constraintBottom_toBottomOf="@id/discount_options"
-        android:inputType="numberDecimal"/>
+            app:layout_constraintStart_toStartOf="@id/cost_of_item"
+            app:layout_constraintTop_toBottomOf="@id/discount_question"
+            android:orientation="vertical"
+            android:checkedButton="@id/ten_percent">
+            <RadioButton
+                android:id="@+id/ten_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_10"/>
+            <RadioButton
+                android:id="@+id/twenty_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_20"/>
+            <RadioButton
+                android:id="@+id/fifty_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_50"/>
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/other"/>
+        </RadioGroup>
+        <!-- User input for the 'other' option -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/other_input"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/_33"
+            app:layout_constraintStart_toEndOf="@id/discount_options"
+            app:layout_constraintBottom_toBottomOf="@id/discount_options"
+            android:layout_marginStart="16dp">
 
-    <Button
-        android:id="@+id/calculate_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/discount_options"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/calculate_discount"/>
-    <TextView
-        android:id="@+id/discount_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/calculate_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@string/discount_amount"/>
-    <TextView
-        android:id="@+id/discounted_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/discount_result"
-        tools:text="@string/discounted_price"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/other_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/discount_options"
+            app:layout_constraintStart_toStartOf="@id/discount_options"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/calculate_discount"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/discount_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/calculate_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/discount_amount"/>
+        <TextView
+            android:id="@+id/discounted_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/discount_result"
+            tools:text="@string/discounted_price"/>
 
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
