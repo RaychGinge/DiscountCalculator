@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         tools:context=".MainActivity">
-        <!-- User enters amount of item -->
 
         <ImageView
             android:id="@+id/icon_cost_of_item"
@@ -22,7 +21,7 @@
             app:layout_constraintTop_toTopOf="@id/cost_of_item"
             app:layout_constraintBottom_toBottomOf="@id/cost_of_item"
             tools:ignore="ContentDescription" />
-
+        <!-- User enters amount of item -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cost_of_item"
             android:layout_width="160dp"
@@ -49,6 +48,7 @@
             app:layout_constraintTop_toTopOf="@id/discount_question"
             app:layout_constraintBottom_toBottomOf="@id/discount_question"
             tools:ignore="ContentDescription" />
+
         <!-- Question about how much the discount is, to precede the options -->
         <TextView
             android:id="@+id/discount_question"
@@ -58,6 +58,7 @@
             app:layout_constraintStart_toStartOf="@id/cost_of_item"
             app:layout_constraintTop_toBottomOf="@id/cost_of_item"
             style="@style/Widget.DiscountCalculator.TextView"/>
+
         <!-- Options for the discount amount -->
         <RadioGroup
             android:id="@+id/discount_options"
@@ -92,6 +93,7 @@
                 android:text="@string/other"
                 style="@style/Widget.DiscountCalculator.CompoundButton.RadioButton"/>
         </RadioGroup>
+
         <!-- User input for the 'other' option -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/other_input"
@@ -110,6 +112,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- This is the button to press for the calculation to be made -->
         <Button
             android:id="@+id/calculate_button"
             android:layout_width="0dp"
@@ -119,6 +122,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/calculate_discount"
             android:layout_marginTop="8dp"/>
+
+        <!-- The amount of discount you'll get -->
         <TextView
             android:id="@+id/discount_result"
             android:layout_width="wrap_content"
@@ -128,6 +133,8 @@
             tools:text="@string/discount_amount"
             style="@style/Widget.DiscountCalculator.TextView"
             android:layout_marginTop="8dp"/>
+
+        <!-- The price of the item after the discount -->
         <TextView
             android:id="@+id/discounted_price"
             android:layout_width="wrap_content"
